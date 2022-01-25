@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mainmenu2.ui.fratgmentmenu.MoreMovieInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/film_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Film Title"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="154dp"
+        android:layout_height="154dp"
+        android:src="@drawable/ic_menu_slideshow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/film_name" />
+
+
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="About film"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/scroll"
+            app:layout_constraintTop_toBottomOf="@+id/scroll" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/rate_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" rating_status"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/rate" />
+
+    <TextView
+        android:id="@+id/duration_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" duration_status"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/duration" />
+
+    <Button
+        android:id="@+id/add_to_watching"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="@string/add_to_watch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" Film Rating: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@id/film_name" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" Film Duration: "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/rate_status" />
+
+    <Button
+        android:id="@+id/to_watchlist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#4CAF50"
+        android:text="Перейти в список просмотренных"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/add_to_watching"
+        app:layout_constraintStart_toStartOf="@+id/add_to_watching"
+        app:layout_constraintTop_toBottomOf="@+id/add_to_watching" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/tag_film"
+        app:layout_constraintBottom_toBottomOf="@+id/to_watchlist"
+        app:layout_constraintEnd_toStartOf="@+id/to_watchlist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/add_to_watching"
+        android:background="@color/teal_700">
+
+        <TextView
+            android:id="@+id/genres"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="genres"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/tag_film"
+            app:layout_constraintTop_toBottomOf="@+id/tag_film" />
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/global_nav"
+    app:startDestination="@id/login_main">
+
+    <fragment
+        android:id="@+id/login_main"
+        android:name="com.example.movieselector.autorization.loginfragments.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_main_to_autorization"
+            app:destination="@id/autorization" />
+    </fragment>
+    <fragment
+        android:id="@+id/autorization"
+        android:name="com.example.movieselector.autorization.loginfragments.Autorization"
+        android:label="fragment_autorization"
+        tools:layout="@layout/fragment_autorization" >
+        <action
+            android:id="@+id/action_autorization_to_login_main"
+            app:destination="@id/login_main" />
+    </fragment>
+</navigation>

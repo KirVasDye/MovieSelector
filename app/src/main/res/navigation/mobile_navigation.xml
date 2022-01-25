@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigator"
+    app:startDestination="@id/userLists">
+    <fragment
+        android:id="@+id/userLists"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.UserListFragment"
+        android:label="fragment_user_lists"
+        tools:layout="@layout/fragment_user_lists" >
+        <action
+            android:id="@+id/action_userLists_to_moreMovieInfoFragment"
+            app:destination="@id/moreMovieInfoFragment" />
+        <action
+            android:id="@+id/action_userLists_to_watchListFragment"
+            app:destination="@id/watchListFragment" />
+        <action
+            android:id="@+id/action_userLists_to_selectionFragment"
+            app:destination="@id/selectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreMovieInfoFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.MoreMovieInfoFragment"
+        android:label="fragment_more_movie_info"
+        tools:layout="@layout/fragment_more_movie_info" >
+        <action
+            android:id="@+id/action_moreMovieInfoFragment_to_watchListFragment"
+            app:destination="@id/watchListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/watchListFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.WatchListFragment"
+        android:label="fragment_watch_list"
+        tools:layout="@layout/fragment_watch_list" />
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.SelectionFragment"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection" >
+        <action
+            android:id="@+id/action_selectionFragment_to_genresChooseFragment"
+            app:destination="@id/genresChooseFragment" />
+        <action
+            android:id="@+id/action_selectionFragment_to_durationChooseFragment"
+            app:destination="@id/durationChooseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genresChooseFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.GenresChooseFragment"
+        android:label="fragment_genres_choose"
+        tools:layout="@layout/fragment_genres_choose" />
+    <fragment
+        android:id="@+id/durationChooseFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.DurationChooseFragment"
+        android:label="fragment_duration_choose"
+        tools:layout="@layout/fragment_duration_choose" />
+</navigation>

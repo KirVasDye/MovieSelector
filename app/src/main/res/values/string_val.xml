@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="order_strings">
+        <item>Названию а..я</item>
+        <item>Названию я..а</item>
+        <item>Длительности ⬇</item>
+        <item>Длительности ⬆</item>
+        <item>Рейтингу ⬇</item>
+        <item>Рейтингу ⬆</item>
+    </array>
+</resources>

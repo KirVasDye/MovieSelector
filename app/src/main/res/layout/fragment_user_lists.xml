@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:padding="4dp"
+    tools:context=".mainmenu2.ui.fratgmentmenu.UserListFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Добро пожаловать"
+        android:layout_gravity="center"
+        android:textSize="12pt"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="12pt" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/watching"
+        android:layout_marginTop="10dp"
+        android:id="@+id/films_list"/>
+
+    <Button
+        android:id="@+id/watching"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_alignStart="@+id/name"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#4CAF50"
+        android:drawableRight="@drawable/ic_menu_slideshow"
+        android:text="Просмотренные" />
+
+    <Button
+        android:id="@+id/find_films"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/watching"
+        android:background="#4CAF50"
+        android:drawableRight="@android:drawable/ic_media_ff"
+        android:text="Подобрать фильмы" />
+
+    <ImageView
+        android:id="@+id/right_button"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_baseline_chevron_right_24" />
+
+    <ImageView
+        android:id="@+id/left_button"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_baseline_chevron_left_24" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/left_button"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/page_status"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:text="page"
+            android:textAlignment="textEnd"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/page_max"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/page_status"
+            android:text="page_max"
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/to_end"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_above="@+id/right_button"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_double_arrow_24" />
+
+    <ImageView
+        android:id="@+id/to_start"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:scaleX="-1"
+        android:layout_above="@+id/left_button"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_baseline_double_arrow_24" />
+
+
+</RelativeLayout>

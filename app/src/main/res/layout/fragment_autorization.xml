@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    tools:context=".autorization.loginfragments.Autorization">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="@color/teal_700"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Введите свой ник"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nickname"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Введите свой email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email_address"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
+        android:minHeight="48dp"
+        android:hint="Введите пароль"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/text_reenter_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_password"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
+        android:minHeight="48dp"
+        android:hint="Повторите пароль"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_reenter_password"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#4CAF50"
+        android:gravity="center"
+        android:text="Зарегистрироваться" />
+
+</RelativeLayout>
