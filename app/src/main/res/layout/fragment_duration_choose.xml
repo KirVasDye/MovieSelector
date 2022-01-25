@@ -1,14 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_200"
     tools:context=".mainmenu2.ui.fratgmentmenu.DurationChooseFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/hour_logo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Введите время(часы)"
+        android:textAlignment="textEnd"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <SeekBar
+        android:id="@+id/hour_choose"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="6"
+        android:progress="3"
+        android:layout_marginTop="40dp"
+        android:background="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hour_logo"
+        android:layout_marginHorizontal="30dp"/>
+
+    <TextView
+        android:id="@+id/hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/hour_choose"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="time"
+        android:layout_marginLeft="40dp"
+        android:textSize="18sp"
+        android:background="@color/teal_700"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/minute_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Введите время(минуты)"
+        android:textAlignment="textEnd"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hour_choose" />
+
+    <SeekBar
+        android:id="@+id/minute_choose"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="59"
+        android:background="@color/teal_700"
+        android:progress="3"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minute_logo"
+        android:layout_marginHorizontal="30dp"/>
+
+    <TextView
+        android:id="@+id/minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/minute_choose"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="time"
+        android:layout_marginLeft="40dp"
+        android:textSize="18sp"
+        android:background="@color/teal_700"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/error_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберете погрешность(минуты)"
+        android:textAlignment="textEnd"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minute_choose" />
+
+    <SeekBar
+        android:id="@+id/error_choose"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="59"
+        android:progress="3"
+        android:background="@color/teal_700"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_logo"
+        android:layout_marginHorizontal="30dp"/>
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/error_choose"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="time"
+        android:layout_marginLeft="40dp"
+        android:textSize="18sp"
+        android:background="@color/teal_700"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подтвердить выбор"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#4CAF50"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

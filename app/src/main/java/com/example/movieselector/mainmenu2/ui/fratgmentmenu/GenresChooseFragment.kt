@@ -78,7 +78,7 @@ class GenresChooseFragment : Fragment() {
         }
     }
 
-    fun findIndexElement(arr: MutableList<Tag>, tag: Tag): Int{
+    private fun findIndexElement(arr: MutableList<Tag>, tag: Tag): Int{
         var res = -1
         for(i in 0 until arr.size){
             if(arr[i].id == tag.id){
