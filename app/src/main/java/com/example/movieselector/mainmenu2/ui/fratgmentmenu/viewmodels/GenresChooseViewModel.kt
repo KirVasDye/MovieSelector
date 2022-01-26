@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieselector.mainmenu.apirequests.Controller
 import com.example.movieselector.mainmenu.getAPI
+import com.example.movieselector.mainmenu.models.Duration
 import com.example.movieselector.mainmenu.models.GenresResponse
 import com.example.movieselector.mainmenu.models.Tag
 import com.google.firebase.auth.ktx.auth

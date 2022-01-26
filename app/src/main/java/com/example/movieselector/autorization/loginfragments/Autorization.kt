@@ -12,6 +12,7 @@ import com.example.movieselector.R
 import com.example.movieselector.autorization.NullFieldEX
 import com.example.movieselector.autorization.RegisterLogic
 import com.example.movieselector.autorization.models.User
+import com.example.movieselector.mainmenu.models.Duration
 import com.example.movieselector.mainmenu.models.Page
 import com.example.movieselector.mainmenu.models.Tag
 import com.example.movieselector.toastwindow.eventAlert
@@ -26,6 +27,7 @@ class Autorization : Fragment() {
     private lateinit var users: DatabaseReference
     private lateinit var page: DatabaseReference
     private lateinit var genres: DatabaseReference
+    private lateinit var duration: DatabaseReference
 
     private lateinit var name: EditText
     private lateinit var email: EditText
@@ -40,6 +42,7 @@ class Autorization : Fragment() {
         users = db.getReference("Users")
         page = db.getReference("Pages")
         genres = db.getReference("GenresStatus")
+        duration = db.getReference("DurationChoose")
     }
 
     override fun onCreateView(
@@ -77,6 +80,8 @@ class Autorization : Fragment() {
                                     .setValue(Page())
                                 genres.child(FirebaseAuth.getInstance().currentUser!!.uid)
                                     .setValue(Tag())
+                                duration.child(FirebaseAuth.getInstance().currentUser!!.uid)
+                                    .setValue(Duration())
                                 eventAlert(view, "Регистрация успешна")
                                 view.findNavController().navigate(R.id.login_main)
                             }.addOnFailureListener {

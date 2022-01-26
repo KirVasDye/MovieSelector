@@ -14,6 +14,7 @@ import com.example.movieselector.R
 import com.example.movieselector.databinding.FragmentMoreMovieInfoBinding
 import com.example.movieselector.databinding.FragmentSelectionBinding
 import com.example.movieselector.databinding.FragmentUserListsBinding
+import com.example.movieselector.mainmenu.models.Duration
 import com.example.movieselector.mainmenu.models.Tag
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels.MoreMovieInfoViewModel
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels.SelectionViewModel
@@ -39,6 +40,7 @@ class SelectionFragment : Fragment() {
         super.onCreate(savedInstanceState)
         db = FirebaseDatabase.getInstance()
         genresStatus = db.getReference("GenresStatus").child(uid.toString())
+        duration = db.getReference("DurationChoose").child(uid.toString())
     }
 
     override fun onCreateView(
@@ -57,6 +59,20 @@ class SelectionFragment : Fragment() {
                 view?.findViewById<ImageView>(R.id.genres_disable)?.visibility = View.INVISIBLE
             }
         })
+        selectionViewModel.durationChoose.observe(viewLifecycleOwner, {
+            if(
+                (it.hour == 0)
+                && (it.minute < 30)
+            ) {
+                view?.findViewById<ImageView>(R.id.duration_done)?.visibility = View.INVISIBLE
+                view?.findViewById<ImageView>(R.id.duration_disable)?.visibility = View.VISIBLE
+
+            } else {
+                view?.findViewById<ImageView>(R.id.duration_done)?.visibility = View.VISIBLE
+                view?.findViewById<ImageView>(R.id.duration_disable)?.visibility = View.INVISIBLE
+
+            }
+        })
 
         return root
     }
@@ -68,6 +84,7 @@ class SelectionFragment : Fragment() {
         goToDurationChoose = view.findViewById(R.id.select_duration_button)
         clearAll.setOnClickListener {
             genresStatus.setValue(Tag())
+            duration.setValue(Duration())
             eventAlert(view, "Очищено")
         }
         goToGenresChoose.setOnClickListener {
