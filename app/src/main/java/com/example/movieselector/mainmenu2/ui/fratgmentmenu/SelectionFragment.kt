@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import com.example.movieselector.R
 import com.example.movieselector.databinding.FragmentMoreMovieInfoBinding
@@ -31,6 +34,7 @@ class SelectionFragment : Fragment() {
     private lateinit var goToGenresChoose: Button
     private lateinit var clearAll: Button
     private lateinit var goToDurationChoose: Button
+    private lateinit var goToSelectMovie: Button
     private lateinit var db: FirebaseDatabase
     private lateinit var genresStatus: DatabaseReference
     private lateinit var duration: DatabaseReference
@@ -47,6 +51,7 @@ class SelectionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         selectionViewModel = ViewModelProvider(this)[SelectionViewModel::class.java]
         _binding = FragmentSelectionBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -70,9 +75,9 @@ class SelectionFragment : Fragment() {
             } else {
                 view?.findViewById<ImageView>(R.id.duration_done)?.visibility = View.VISIBLE
                 view?.findViewById<ImageView>(R.id.duration_disable)?.visibility = View.INVISIBLE
-
             }
         })
+
 
         return root
     }
@@ -82,6 +87,7 @@ class SelectionFragment : Fragment() {
         clearAll = view.findViewById(R.id.del_all)
         goToGenresChoose = view.findViewById(R.id.select_genres_button)
         goToDurationChoose = view.findViewById(R.id.select_duration_button)
+        goToSelectMovie = view.findViewById(R.id.select_button)
         clearAll.setOnClickListener {
             genresStatus.setValue(Tag())
             duration.setValue(Duration())
@@ -92,6 +98,17 @@ class SelectionFragment : Fragment() {
         }
         goToDurationChoose.setOnClickListener {
             view.findNavController().navigate(R.id.durationChooseFragment)
+        }
+        goToSelectMovie.setOnClickListener {
+            if(
+                (selectionViewModel.durationChoose.value?.hour != 0 || selectionViewModel.durationChoose.value?.minute!! > 30)
+                && selectionViewModel.tagStatus.value?.id != 0
+            ) {
+                eventAlert(view, "Переходим к подбору")
+                view.findNavController().navigate(R.id.movieSelectionFragment)
+            } else {
+                eventAlert(view, "Заполните все поля")
+            }
         }
     }
 

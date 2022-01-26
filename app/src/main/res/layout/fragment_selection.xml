@@ -94,16 +94,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_duration_button" />
 
-    <ImageView
-        android:id="@+id/select_button_disable"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:visibility="visible"
-        android:src="@drawable/ic_baseline_clear_24"
-        app:layout_constraintBottom_toBottomOf="@+id/select_button"
-        app:layout_constraintEnd_toStartOf="@+id/select_button"
-        app:layout_constraintTop_toTopOf="@+id/select_button" />
-
     <Button
         android:id="@+id/del_all"
         android:layout_width="wrap_content"

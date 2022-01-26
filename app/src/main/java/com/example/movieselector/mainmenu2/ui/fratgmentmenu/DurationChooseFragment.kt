@@ -41,7 +41,7 @@ class DurationChooseFragment : Fragment() {
         super.onCreate(savedInstanceState)
         db = FirebaseDatabase.getInstance()
         durationStatus = db.getReference("DurationChoose").child(uid.toString())
-        
+
     }
 
     override fun onCreateView(

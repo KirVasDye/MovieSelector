@@ -2,12 +2,14 @@ package com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.movieselector.mainmenu.models.Duration
 import com.example.movieselector.mainmenu.models.MoreMovie
 import com.example.movieselector.mainmenu.models.Tag
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import kotlin.coroutines.coroutineContext
 
 class SelectionViewModel : ViewModel() {
     val TAG = "SelectionViewModel"

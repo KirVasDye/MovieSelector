@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_selectionFragment_to_durationChooseFragment"
             app:destination="@id/durationChooseFragment" />
+        <action
+            android:id="@+id/action_selectionFragment_to_movieSelectionFragment"
+            app:destination="@id/movieSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/genresChooseFragment"
@@ -55,4 +58,9 @@
         android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.DurationChooseFragment"
         android:label="fragment_duration_choose"
         tools:layout="@layout/fragment_duration_choose" />
+    <fragment
+        android:id="@+id/movieSelectionFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.MovieSelectionFragment"
+        android:label="fragment_movie_selection"
+        tools:layout="@layout/fragment_movie_selection" />
 </navigation>
