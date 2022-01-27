@@ -143,6 +143,10 @@ class UserListViewModel : ViewModel() {
     val userData: LiveData<User> = _userData
     var pageMax: LiveData<Int> = _pageMax
 
+    override fun onCleared() {
+        super.onCleared()
+    }
+
     /*fun loadNext(){
         page++
         _moreMovieList.apply {

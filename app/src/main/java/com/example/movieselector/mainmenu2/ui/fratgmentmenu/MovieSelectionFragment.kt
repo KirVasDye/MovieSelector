@@ -36,8 +36,8 @@ class MovieSelectionFragment : Fragment() {
         movieSelectionViewModel = ViewModelProvider(this)[MovieSelectionViewModel::class.java]
         _binding = FragmentMovieSelectionBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        movieSelectionViewModel.durationChoose.observe(viewLifecycleOwner, {
-            Log.d(TAG, it.toString())
+        movieSelectionViewModel.movieList.observe(viewLifecycleOwner, {
+            Log.d(TAG, it.results.toString())
         })
         return root
     }

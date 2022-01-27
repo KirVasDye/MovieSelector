@@ -21,7 +21,7 @@ class MoreMovie(
     override fun toString(): String {
         return super.toString() + ", runtime: ${Time.intToStringTime(runtime)} poster_path: ${Image.getImageURL(poster_path)}, genres: $genres\n"
     }
-    fun getStringGenres(): String{
+    fun stringGenres(): String{
         var res = ""
         genres.forEach{
             res += "${it.name}\n"

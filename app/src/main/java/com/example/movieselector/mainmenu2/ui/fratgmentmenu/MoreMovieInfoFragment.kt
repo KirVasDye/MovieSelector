@@ -1,6 +1,5 @@
 package com.example.movieselector.mainmenu2.ui.fratgmentmenu
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,7 +47,7 @@ class MoreMovieInfoFragment : Fragment() {
         moreMovieInfoViewModel.moreMovie.observe(viewLifecycleOwner, {
             view?.findViewById<TextView>(R.id.film_name)?.text = it.title
             view?.findViewById<TextView>(R.id.description)?.text = it.overview
-            view?.findViewById<TextView>(R.id.genres)?.text = it.getStringGenres()
+            view?.findViewById<TextView>(R.id.genres)?.text = it.stringGenres()
             view?.findViewById<TextView>(R.id.rate_status)?.text = it.vote_average.toString()
             view?.findViewById<TextView>(R.id.duration_status)?.text = Time.intToStringTime(it.runtime)
             Picasso.get()

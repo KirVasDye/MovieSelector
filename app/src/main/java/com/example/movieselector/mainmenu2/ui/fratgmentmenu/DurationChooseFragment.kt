@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import com.example.movieselector.R
 import com.example.movieselector.databinding.FragmentDurationChooseBinding
 import com.example.movieselector.mainmenu.models.Duration
+import com.example.movieselector.mainmenu.models.MoreMovie
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels.DurationChooseViewModel
 import com.example.movieselector.toastwindow.eventAlert
 import com.google.firebase.auth.ktx.auth
