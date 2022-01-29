@@ -92,5 +92,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/poster">
+        <TextView
+            android:id="@+id/text_about_film"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="About film"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/description_film"
+            app:layout_constraintTop_toBottomOf="@+id/description_film" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
