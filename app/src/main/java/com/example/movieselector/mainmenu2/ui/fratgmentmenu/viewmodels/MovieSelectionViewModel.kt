@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,12 +29,13 @@ class MovieSelectionViewModel : ViewModel() {
     private lateinit var durationStatus: DatabaseReference
     private lateinit var genresStatus: DatabaseReference
     private lateinit var watchingFilms: DatabaseReference
+    private lateinit var interestedFilm: DatabaseReference
     private lateinit var notInterestedFilmsList: DatabaseReference
     private lateinit var notInterestedResList: DatabaseReference
     private var extraWatchingMovieList: ArrayList<MoreMovie> = arrayListOf()
     private var extraMovieList: MutableList<MoreMovie> = arrayListOf()
     private var extraNotInterestedResList: MutableList<MovieFailCounter> = arrayListOf()
-    private var mediatorLiveData = MediatorLiveData<MutableList<MoreMovie>>()
+    private var extraMovieListHelper: MutableList<MoreMovie> = arrayListOf()
 
     private interface DurationChooseInterface{
         fun data(duration: Duration)
@@ -48,11 +50,14 @@ class MovieSelectionViewModel : ViewModel() {
         fun data(list: ArrayList<MoreMovie>)
     }
     private interface MovieListInterface{
-        fun data(list: MoreMovie)
+        fun data(list: MutableList<MoreMovie>)
         //fun data(moviePage: MovieResponse)
     }
     private interface NotInterestedRes{
         fun data(noInteres: MutableList<MovieFailCounter>)
+    }
+    private interface InterestingFilmInterface{
+        fun data(movie: MoreMovie)
     }
     private var durationChoose: Duration = Duration()
     init {
@@ -100,23 +105,54 @@ class MovieSelectionViewModel : ViewModel() {
             }
         })
     }
+    private var interestingFilm: MoreMovie = MoreMovie()
+    init {
+        getPreviousInterestingFilm(object : InterestingFilmInterface{
+            override fun data(movie: MoreMovie) {
+                interestingFilm = movie
+                Log.d(TAG, interestingFilm.toString())
+            }
+        })
+    }
 
     init {
         Log.d(TAG, page.toString())
     }
     private var _movieList = MutableLiveData<MutableList<MoreMovie>>().apply {
-        value = arrayListOf()
+        extraMovieListHelper = arrayListOf()
         getMoreMovieList(object : MovieListInterface{
-            override fun data(movie: MoreMovie) {
-                if(separateMovieList(movie)){
+            override fun data(movie: MutableList<MoreMovie>) {
+                if(movie.size == 20){
+                    movie.forEach{
+                        if(separateMovieList(it)){
+                            extraMovieListHelper.add(it)
+                        }
+                    }
+                    value = extraMovieListHelper
+                }
+                /*if(separateMovieList(movie)){
                     Log.d(TAG, movie.toString())
                     extraMovieList.add(movie)
                     value = extraMovieList
-                }
+                }*/
             }
         })
     }
 
+    private fun getPreviousInterestingFilm(movie: InterestingFilmInterface){
+        db = FirebaseDatabase.getInstance()
+        interestedFilm = db.getReference("InterestingFilm")
+            .child(uid.toString())
+        interestedFilm.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                movie.data(
+                    snapshot.getValue(MoreMovie::class.java) ?: MoreMovie()
+                )
+            }
+            override fun onCancelled(error: DatabaseError) {}
+
+        })
+    }
     private fun getDurationChoose(duration: MovieSelectionViewModel.DurationChooseInterface){
         db = FirebaseDatabase.getInstance()
         durationStatus = db.getReference("DurationChoose").child(uid.toString())
@@ -203,7 +239,10 @@ class MovieSelectionViewModel : ViewModel() {
                                 call: Call<MoreMovie?>,
                                 response: Response<MoreMovie?>
                             ) {
-                                response.body()?.let { list.data(it) }
+                                response.body()?.let {
+                                    extraMovieList.add(it)
+                                }
+                                list.data(extraMovieList)
                                 /*var film = response.body()!!
                                 if((!ListHelper.listContainsMovie(watchingMovieList, film))
                                     &&(ListHelper.listContainsGenres(film.genres, genresChoose))
@@ -243,11 +282,16 @@ class MovieSelectionViewModel : ViewModel() {
         page++
         Log.d(TAG, "$page page")
         _movieList.apply {
+            extraMovieListHelper = arrayListOf()
             getMoreMovieList(object : MovieListInterface {
-                override fun data(list: MoreMovie) {
-                    if (separateMovieList(list)) {
-                        extraMovieList.add(list)
-                        value = extraMovieList
+                override fun data(movie: MutableList<MoreMovie>) {
+                    if (movie.size == 20) {
+                        movie.forEach {
+                            if (separateMovieList(it)) {
+                                extraMovieListHelper.add(it)
+                            }
+                        }
+                        value = extraMovieListHelper
                     }
                 }
             })
@@ -270,7 +314,23 @@ class MovieSelectionViewModel : ViewModel() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
-        extraMovieList.removeFirst()
-        _movieList.value = extraMovieList
+        Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
+        extraMovieListHelper.removeFirst()
+        Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
+        _movieList.value = extraMovieListHelper
+    }
+
+    fun addToInteresting(){
+        val temp = _movieList.value?.first()
+        db = FirebaseDatabase.getInstance()
+        watchingFilms = db.getReference("films_id")
+            .child(uid.toString())
+        interestedFilm = db.getReference("InterestingFilm")
+            .child(uid.toString())
+        if(interestingFilm.id != 0){
+            watchingFilms.child(interestingFilm.id.toString())
+                .setValue(interestingFilm)
+        }
+        interestedFilm.setValue(temp)
     }
 }

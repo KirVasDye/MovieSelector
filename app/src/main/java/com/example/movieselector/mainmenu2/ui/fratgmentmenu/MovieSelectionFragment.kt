@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.movieselector.R
 import com.example.movieselector.databinding.FragmentDurationChooseBinding
 import com.example.movieselector.databinding.FragmentMovieSelectionBinding
@@ -48,7 +49,10 @@ class MovieSelectionFragment : Fragment() {
         _binding = FragmentMovieSelectionBinding.inflate(inflater, container, false)
         val root: View = binding.root
         movieSelectionViewModel.movieList.observe(viewLifecycleOwner, {
-            Log.d(TAG, it.toString() + "movieSelectionViewModel")
+            Log.d(TAG, "$it movieSelectionViewModel")
+            if(it.isEmpty()){
+                movieSelectionViewModel.next()
+            }
             if(it.isNotEmpty()){
                 Picasso.get()
                     .load(Image.getImageURL(it.first().poster_path, 185))
@@ -58,9 +62,6 @@ class MovieSelectionFragment : Fragment() {
                 view?.findViewById<TextView>(R.id.rating_status)?.text = it.first().vote_average.toString()
                 view?.findViewById<TextView>(R.id.time_status)?.text = Time.intToStringTime(it.first().runtime)
                 view?.findViewById<TextView>(R.id.text_about_film)?.append("\n-------------------\n${it.first().stringGenres()}")
-            }
-            if (it.isEmpty()){
-                movieSelectionViewModel.next()
             }
         })
         return root
@@ -74,7 +75,8 @@ class MovieSelectionFragment : Fragment() {
             movieSelectionViewModel.dropMovie()
         }
         interestedButton.setOnClickListener {
-
+            movieSelectionViewModel.addToInteresting()
+            view.findNavController().navigate(R.id.finalChooseStepFragment)
         }
     }
 

@@ -62,5 +62,18 @@
         android:id="@+id/movieSelectionFragment"
         android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.MovieSelectionFragment"
         android:label="fragment_movie_selection"
-        tools:layout="@layout/fragment_movie_selection" />
+        tools:layout="@layout/fragment_movie_selection" >
+        <action
+            android:id="@+id/action_movieSelectionFragment_to_finalChooseStepFragment"
+            app:destination="@id/finalChooseStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalChooseStepFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.FinalChooseStepFragment"
+        android:label="fragment_final_choose_step"
+        tools:layout="@layout/fragment_final_choose_step" >
+        <action
+            android:id="@+id/action_finalChooseStepFragment_to_userLists"
+            app:destination="@id/userLists" />
+    </fragment>
 </navigation>

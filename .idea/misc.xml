@@ -20,7 +20,8 @@
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/content_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_autorization.xml" value="0.17864583333333334" />
-        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_duration_choose.xml" value="0.25" />
+        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_duration_choose.xml" value="0.33" />
+        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_final_choose_step.xml" value="0.25" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_gallery.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_genres_choose.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
