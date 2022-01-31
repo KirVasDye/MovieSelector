@@ -9,27 +9,31 @@
     tools:context=".mainmenu2.ui.fratgmentmenu.UserListFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/logo"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:text="Добро пожаловать"
-        android:layout_gravity="center"
-        android:textSize="12pt"
-        tools:ignore="HardcodedText" />
 
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logo"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="12pt" />
+
+    <Button
+        android:id="@+id/want_to_watching"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/find_films"
+        android:layout_alignEnd="@+id/find_films"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#4CAF50"
+        android:text="Хочу посмотреть" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

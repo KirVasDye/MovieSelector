@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_userLists_to_selectionFragment"
             app:destination="@id/selectionFragment" />
+        <action
+            android:id="@+id/action_userLists_to_wantToWatchingFragment"
+            app:destination="@id/wantToWatchingFragment" />
     </fragment>
     <fragment
         android:id="@+id/moreMovieInfoFragment"
@@ -76,4 +79,9 @@
             android:id="@+id/action_finalChooseStepFragment_to_userLists"
             app:destination="@id/userLists" />
     </fragment>
+    <fragment
+        android:id="@+id/wantToWatchingFragment"
+        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.WantToWatchingFragment"
+        android:label="fragment_want_to_watching"
+        tools:layout="@layout/fragment_want_to_watching" />
 </navigation>

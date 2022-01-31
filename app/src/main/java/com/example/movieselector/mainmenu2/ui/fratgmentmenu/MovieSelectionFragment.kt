@@ -58,7 +58,8 @@ class MovieSelectionFragment : Fragment() {
                     .load(Image.getImageURL(it.first().poster_path, 185))
                     .placeholder(R.drawable.ic_menu_slideshow)
                     .into(view?.findViewById(R.id.poster))
-                view?.findViewById<TextView>(R.id.text_about_film)?.text = it.first().overview
+                view?.findViewById<TextView>(R.id.text_about_film)?.text = it.first().title
+                view?.findViewById<TextView>(R.id.text_about_film)?.append("\n-------------------\n${it.first().overview}")
                 view?.findViewById<TextView>(R.id.rating_status)?.text = it.first().vote_average.toString()
                 view?.findViewById<TextView>(R.id.time_status)?.text = Time.intToStringTime(it.first().runtime)
                 view?.findViewById<TextView>(R.id.text_about_film)?.append("\n-------------------\n${it.first().stringGenres()}")

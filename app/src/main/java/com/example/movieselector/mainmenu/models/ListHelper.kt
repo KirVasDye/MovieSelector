@@ -11,6 +11,17 @@ object ListHelper {
         }
         return res
     }
+    fun listContainsMovieAndNotInterested(listMovie: MutableList<MovieFailCounter>, movie: MoreMovie): Boolean{
+        var res = false
+        for(film in listMovie){
+            if((film.filmId == movie.id) && (film.failureCounter == 3)){
+                res = true
+                break
+            }
+        }
+        return res
+    }
+
     fun listContainsGenres(listGenres: List<Tag>, genres: Tag): Boolean{
         var res = false
         for(tag in listGenres){

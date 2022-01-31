@@ -273,7 +273,9 @@ class MovieSelectionViewModel : ViewModel() {
 
     fun separateMovieList(movie: MoreMovie): Boolean{
         return ((!ListHelper.listContainsMovie(watchingMovieList, movie))
+                &&(!ListHelper.listContainsMovieAndNotInterested(notInterestedRes, movie))
                 &&(ListHelper.listContainsGenres(movie.genres, genresChoose))
+                &&(interestingFilm.id != movie.id)
                 &&(movie.runtime >= Time.durationToInt(durationChoose) - durationChoose.error)
                 &&(movie.runtime <= Time.durationToInt(durationChoose) + durationChoose.error))
     }
@@ -299,25 +301,28 @@ class MovieSelectionViewModel : ViewModel() {
     }
 
     fun dropMovie(){
-        db = FirebaseDatabase.getInstance()
-        notInterestedFilmsList = db.getReference("NotInterestedFilmsCounter")
-            .child(uid.toString())
-            .child(_movieList.value?.get(0)?.id.toString())
-        var idFilm = _movieList.value?.get(0)?.id
-        Log.d(TAG, idFilm.toString())
-        notInterestedFilmsList.addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val movieFailCounter = snapshot.getValue(MovieFailCounter::class.java) ?: MovieFailCounter()
-                movieFailCounter!!.failureCounter++
-                movieFailCounter.filmId = idFilm!!
-                notInterestedFilmsList.setValue(movieFailCounter)
-            }
-            override fun onCancelled(error: DatabaseError) {}
-        })
-        Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
-        extraMovieListHelper.removeFirst()
-        Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
-        _movieList.value = extraMovieListHelper
+        if(extraMovieListHelper.size != 0) {
+            db = FirebaseDatabase.getInstance()
+            notInterestedFilmsList = db.getReference("NotInterestedFilmsCounter")
+                .child(uid.toString())
+                .child(_movieList.value?.get(0)?.id.toString())
+            var idFilm = _movieList.value?.get(0)?.id
+            Log.d(TAG, idFilm.toString())
+            notInterestedFilmsList.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val movieFailCounter =
+                        snapshot.getValue(MovieFailCounter::class.java) ?: MovieFailCounter()
+                    movieFailCounter!!.failureCounter++
+                    movieFailCounter.filmId = idFilm!!
+                    notInterestedFilmsList.setValue(movieFailCounter)
+                }
+                override fun onCancelled(error: DatabaseError) {}
+            })
+            Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
+            extraMovieListHelper.removeFirst()
+            Log.d(TAG, "$extraMovieListHelper extraMovieListHelper")
+            _movieList.value = extraMovieListHelper
+        }
     }
 
     fun addToInteresting(){

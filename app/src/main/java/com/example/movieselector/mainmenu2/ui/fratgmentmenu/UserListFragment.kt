@@ -118,6 +118,10 @@ class UserListFragment : Fragment() {
         goToSelectButton.setOnClickListener {
             view.findNavController().navigate(R.id.selectionFragment)
         }
+        val goToWantWatchingButton = view.findViewById<Button>(R.id.want_to_watching)
+        goToWantWatchingButton.setOnClickListener {
+            view.findNavController().navigate(R.id.wantToWatchingFragment)
+        }
         /*previousButton.setOnClickListener {
             try {
                 userListViewModel.loadPrevious()
