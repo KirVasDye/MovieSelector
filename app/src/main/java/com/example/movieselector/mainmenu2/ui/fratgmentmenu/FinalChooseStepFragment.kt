@@ -33,6 +33,7 @@ import android.content.pm.PackageManager
 
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import java.text.SimpleDateFormat
 
 
 class FinalChooseStepFragment : Fragment() {
@@ -72,23 +73,29 @@ class FinalChooseStepFragment : Fragment() {
         setDateButton.setOnClickListener {
             setDate(view)
         }
+
         setInCalendar.setOnClickListener {
             Log.d(TAG, "${dateAndTime.get(Calendar.YEAR)} year " +
                     "${dateAndTime.get(Calendar.MONTH)} month " +
                     "${dateAndTime.get(Calendar.DAY_OF_MONTH)} day")
             Log.d(TAG, "${dateAndTime.get(Calendar.HOUR_OF_DAY)} hour " +
                     "${dateAndTime.get(Calendar.MINUTE)} minute")
+            Log.d(TAG, dateAndTime.toString())
+            Log.d(TAG, dateAndTime.timeInMillis.toString())
+            Log.d(TAG, dateAndTime.time.time.toString())
+            Log.d(TAG, dateAndTime.time.toString())
+
             if(isStoragePermissionGranted()) {
                 /*finalChooseStepViewModel.setInCalendar(dateAndTime, cv, cr!!)*/
                 finalChooseStepViewModel.interestingFilm.observe(viewLifecycleOwner, {
-                    val startEvent: Long = dateAndTime.timeInMillis
                     val intent = Intent(Intent.ACTION_INSERT)
                     intent.data = CalendarContract.Events.CONTENT_URI
                     intent.putExtra(CalendarContract.Events.TITLE, "Watching film")
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, "You want watching ${it.title}")
                     intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "In your phone")
-                    intent.putExtra(CalendarContract.Events.DTSTART, startEvent)
-                    intent.putExtra(CalendarContract.Events.ALL_DAY, false)
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, dateAndTime.timeInMillis)
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, dateAndTime.timeInMillis + it.runtime * 60 *1000)
+                    intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, dateAndTime.timeZone.id)
                     startActivity(intent)
                     /*val startEvent: Long = dateAndTime.timeInMillis
                     cv.put(CalendarContract.Events.TITLE, "Watching film")
@@ -147,13 +154,13 @@ class FinalChooseStepFragment : Fragment() {
     }
 
     var t =
-        OnTimeSetListener { view, hourOfDay, minute ->
+        OnTimeSetListener { _, hourOfDay, minute ->
             dateAndTime[Calendar.HOUR_OF_DAY] = hourOfDay
             dateAndTime[Calendar.MINUTE] = minute
         }
 
     var d =
-        OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+        OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             dateAndTime[Calendar.YEAR] = year
             dateAndTime[Calendar.MONTH] = monthOfYear
             dateAndTime[Calendar.DAY_OF_MONTH] = dayOfMonth

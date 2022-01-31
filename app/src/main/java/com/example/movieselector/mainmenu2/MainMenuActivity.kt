@@ -18,6 +18,8 @@ import com.example.movieselector.R
 import com.example.movieselector.databinding.ActivityMainMenuBinding
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.UserListFragment
 import com.example.movieselector.testdir.uid
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class MainMenuActivity : AppCompatActivity() {

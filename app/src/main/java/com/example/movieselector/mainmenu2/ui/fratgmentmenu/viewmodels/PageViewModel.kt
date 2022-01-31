@@ -14,7 +14,8 @@ class PageViewModel() : ViewModel() {
     val TAG = "PageViewModelViewModel"
     private val db: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val uid = Firebase.auth.currentUser?.uid
-    private val users: DatabaseReference = db.getReference("Pages").child(uid.toString())
+    val users: DatabaseReference = db.getReference("Pages").child(uid.toString())
+    lateinit var refPages: ValueEventListener
     interface PageInfo{
         fun data(page: Page)
     }
@@ -28,7 +29,7 @@ class PageViewModel() : ViewModel() {
 
     private fun getUserPage(pageInterface: PageInfo){
         var page: Page
-        users.addValueEventListener(object : ValueEventListener {
+        refPages = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 page = snapshot.getValue(Page::class.java) ?: Page()
                 Log.d(TAG, page.value.toString())
@@ -37,7 +38,8 @@ class PageViewModel() : ViewModel() {
 
             override fun onCancelled(error: DatabaseError) {}
 
-        })
+        }
+        users.addValueEventListener(refPages)
     }
 
     var pageInfo: LiveData<Page> = _pageInfo

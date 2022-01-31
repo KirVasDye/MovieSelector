@@ -112,4 +112,8 @@ class SelectionFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+    }
+
 }

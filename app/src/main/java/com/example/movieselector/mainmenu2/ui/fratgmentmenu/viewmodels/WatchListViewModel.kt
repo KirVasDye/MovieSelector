@@ -19,7 +19,8 @@ import retrofit2.Response
 
 class WatchListViewModel : ViewModel() {
     private lateinit var db: FirebaseDatabase
-    private lateinit var users: DatabaseReference
+    lateinit var users: DatabaseReference
+    lateinit var refMovie: ValueEventListener
     private val uid = Firebase.auth.currentUser?.uid
     val extsraMovieList = arrayListOf<MoreMovie>()
     private interface MovieInterface{
@@ -35,7 +36,7 @@ class WatchListViewModel : ViewModel() {
     private fun getMovie(movie: MovieInterface){
         db = FirebaseDatabase.getInstance()
         users = db.getReference("films_id").child(uid.toString())
-        users.addValueEventListener(object : ValueEventListener {
+        refMovie = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach{
                     extsraMovieList.add(it.getValue(MoreMovie::class.java) ?: MoreMovie())
@@ -45,7 +46,8 @@ class WatchListViewModel : ViewModel() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        }
+        users.addValueEventListener(refMovie)
     }
     var moreMovieList: LiveData<ArrayList<MoreMovie>> = _moreMovie
 }

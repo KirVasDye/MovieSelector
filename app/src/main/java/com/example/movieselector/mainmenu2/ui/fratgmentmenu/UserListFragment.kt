@@ -16,9 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movieselector.R
 import com.example.movieselector.databinding.FragmentUserListsBinding
 import com.example.movieselector.mainmenu.models.MoreMovie
-import com.example.movieselector.mainmenu.models.MoviesAdapter
+import com.example.movieselector.mainmenu2.ui.fratgmentmenu.adapters.MoviesAdapter
 import com.example.movieselector.mainmenu.models.Page
-import com.example.movieselector.mainmenu2.exeptions.ZeroPageEX
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels.PageViewModel
 import com.example.movieselector.mainmenu2.ui.fratgmentmenu.viewmodels.UserListViewModel
 import com.example.movieselector.toastwindow.eventAlert
@@ -167,6 +166,12 @@ class UserListFragment : Fragment() {
                 eventAlert(view, "Вы находитесь в начале")
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        userListViewModel.users.removeEventListener(userListViewModel.refPages)
+        userListViewModel.users.removeEventListener(userListViewModel.refUserData)
     }
 
     override fun onStop() {

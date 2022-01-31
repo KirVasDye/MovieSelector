@@ -1,4 +1,4 @@
-package com.example.movieselector.mainmenu.models
+package com.example.movieselector.mainmenu2.ui.fratgmentmenu.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
-import com.example.movieselector.mainmenu2.ui.fratgmentmenu.UserListFragment
-import com.example.movieselector.mainmenu2.ui.fratgmentmenu.WatchListFragment
+import com.example.movieselector.mainmenu.models.Image
+import com.example.movieselector.mainmenu.models.MoreMovie
+import com.example.movieselector.mainmenu.models.Time
 import com.squareup.picasso.Picasso
 
 class MoviesAdapter(private val movies: MutableList<MoreMovie>, private val clickListener: ClickListener) :

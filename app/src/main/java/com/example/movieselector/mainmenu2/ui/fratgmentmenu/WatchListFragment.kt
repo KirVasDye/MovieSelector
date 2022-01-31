@@ -112,6 +112,11 @@ class WatchListFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        watchListViewModel.users.removeEventListener(watchListViewModel.refMovie)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

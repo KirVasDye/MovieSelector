@@ -23,7 +23,9 @@ class UserListViewModel : ViewModel() {
     val TAG = "UserListViewModel"
     private val controller = Controller()
     private lateinit var db: FirebaseDatabase
-    private lateinit var users: DatabaseReference
+    lateinit var users: DatabaseReference
+    lateinit var refUserData: ValueEventListener
+    lateinit var refPages: ValueEventListener
     private val extraMovieList: MutableList<MoreMovie> = arrayListOf<MoreMovie>()
     private val uid = Firebase.auth.currentUser?.uid
     /*CorutionScope(Dispatchers.IO).lounch{
@@ -85,7 +87,7 @@ class UserListViewModel : ViewModel() {
         var user: User
         db = FirebaseDatabase.getInstance()
         users = db.getReference("Users").child(uid.toString())
-        users.addValueEventListener(object : ValueEventListener {
+        refUserData = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 user = snapshot.getValue(User::class.java) ?: User()
                 Log.d(TAG, "${user.email}")
@@ -93,13 +95,14 @@ class UserListViewModel : ViewModel() {
             }
 
             override fun onCancelled(error: DatabaseError) {}
-        })
+        }
+        users.addValueEventListener(refUserData)
     }
 
     private fun getMovieList(list: MovieListInterface){
         db = FirebaseDatabase.getInstance()
         users = db.getReference("Pages").child(uid.toString())
-        users.addValueEventListener(object : ValueEventListener{
+        refPages = object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 extraMovieList.clear()
                 controller.prepareMoviesCall().getTopRatedMovies(
@@ -137,7 +140,8 @@ class UserListViewModel : ViewModel() {
             }
             override fun onCancelled(error: DatabaseError) {
             }
-        })
+        }
+        users.addValueEventListener(refPages)
     }
     var moreMovieList: LiveData<MutableList<MoreMovie>> = _moreMovieList
     val userData: LiveData<User> = _userData
