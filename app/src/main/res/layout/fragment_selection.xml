@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_200"
-    tools:context=".mainmenu2.ui.fratgmentmenu.SelectionFragment">
+    tools:context=".mainmenu.ui.fratgmentmenu.SelectionFragment">
 
 
     <TextView
         android:id="@+id/descript"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Заполните форму подбора фильма"
+        android:text="@string/logo_fill"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold|italic"
@@ -25,7 +25,7 @@
         android:id="@+id/select_genres_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Выбор жанра"
+        android:text="@string/genres_choose"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="#FF9800"
@@ -36,7 +36,7 @@
         android:id="@+id/select_duration_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Выбор длительности"
+        android:text="@string/duration_choose"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="#FF9800"
@@ -87,7 +87,7 @@
         android:id="@+id/select_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Начать подбор"
+        android:text="@string/start_select"
         android:layout_marginTop="30dp"
         android:background="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +98,7 @@
         android:id="@+id/del_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Очистить все"
+        android:text="@string/delete_all"
         android:layout_marginBottom="10dp"
         android:background="#F40707"
         app:layout_constraintBottom_toBottomOf="parent"

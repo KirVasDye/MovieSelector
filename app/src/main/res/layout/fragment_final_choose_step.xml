@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_200"
-    tools:context=".mainmenu2.ui.fratgmentmenu.FinalChooseStepFragment">
+    tools:context=".mainmenu.ui.fratgmentmenu.FinalChooseStepFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:id="@+id/in_main_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="В главное меню"
+            android:text="@string/in_main_menu"
             android:background="#FF9800"
             app:layout_constraintBottom_toBottomOf="@+id/set_in_calendar"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             android:id="@+id/set_in_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Добавить в календарь"
+            android:text="@string/add_in_calendar"
             android:background="#4CAF50"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -45,7 +45,7 @@
         android:layout_marginHorizontal="40dp"
         android:background="#4CAF50"
         android:drawableEnd="@android:drawable/ic_menu_recent_history"
-        android:text="Выбрать время просмотра"
+        android:text="@string/choise_time"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="120dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
         android:layout_marginTop="20dp"
         android:background="#4CAF50"
         android:drawableEnd="@android:drawable/ic_menu_today"
-        android:text="Выбрать дату просмотра"
+        android:text="@string/choise_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_picker" />

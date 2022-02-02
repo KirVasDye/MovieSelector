@@ -6,7 +6,7 @@
     app:startDestination="@id/userLists">
     <fragment
         android:id="@+id/userLists"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.UserListFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.UserListFragment"
         android:label="fragment_user_lists"
         tools:layout="@layout/fragment_user_lists" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/moreMovieInfoFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.MoreMovieInfoFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.MoreMovieInfoFragment"
         android:label="fragment_more_movie_info"
         tools:layout="@layout/fragment_more_movie_info" >
         <action
@@ -33,12 +33,12 @@
     </fragment>
     <fragment
         android:id="@+id/watchListFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.WatchListFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.WatchListFragment"
         android:label="fragment_watch_list"
         tools:layout="@layout/fragment_watch_list" />
     <fragment
         android:id="@+id/selectionFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.SelectionFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.SelectionFragment"
         android:label="fragment_selection"
         tools:layout="@layout/fragment_selection" >
         <action
@@ -53,17 +53,17 @@
     </fragment>
     <fragment
         android:id="@+id/genresChooseFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.GenresChooseFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.GenresChooseFragment"
         android:label="fragment_genres_choose"
         tools:layout="@layout/fragment_genres_choose" />
     <fragment
         android:id="@+id/durationChooseFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.DurationChooseFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.DurationChooseFragment"
         android:label="fragment_duration_choose"
         tools:layout="@layout/fragment_duration_choose" />
     <fragment
         android:id="@+id/movieSelectionFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.MovieSelectionFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.MovieSelectionFragment"
         android:label="fragment_movie_selection"
         tools:layout="@layout/fragment_movie_selection" >
         <action
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/finalChooseStepFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.FinalChooseStepFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.FinalChooseStepFragment"
         android:label="fragment_final_choose_step"
         tools:layout="@layout/fragment_final_choose_step" >
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/wantToWatchingFragment"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.WantToWatchingFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.WantToWatchingFragment"
         android:label="fragment_want_to_watching"
         tools:layout="@layout/fragment_want_to_watching" />
 </navigation>

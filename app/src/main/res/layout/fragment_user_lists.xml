@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/teal_200"
     android:padding="4dp"
-    tools:context=".mainmenu2.ui.fratgmentmenu.UserListFragment">
+    tools:context=".mainmenu.ui.fratgmentmenu.UserListFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -32,7 +32,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:background="#4CAF50"
-        android:text="Хочу посмотреть" />
+        android:text="@string/want_watch" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -54,7 +54,7 @@
         android:layout_marginTop="10dp"
         android:background="#4CAF50"
         android:drawableRight="@drawable/ic_menu_slideshow"
-        android:text="Просмотренные" />
+        android:text="@string/watched" />
 
     <Button
         android:id="@+id/find_films"
@@ -66,7 +66,7 @@
         android:layout_toRightOf="@+id/watching"
         android:background="#4CAF50"
         android:drawableRight="@android:drawable/ic_media_ff"
-        android:text="Подобрать фильмы" />
+        android:text="@string/go_to_select_film" />
 
     <ImageView
         android:id="@+id/right_button"
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
-            android:text="page"
+            android:text="@string/page"
             android:textAlignment="textEnd"
             android:textSize="20sp" />
 
@@ -107,7 +107,7 @@
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/page_status"
-            android:text="page_max"
+            android:text="@string/page_max"
             android:textAlignment="textStart"
             android:textSize="20sp" />
 

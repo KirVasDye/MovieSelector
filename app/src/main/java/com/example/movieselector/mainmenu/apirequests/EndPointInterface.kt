@@ -1,11 +1,9 @@
 package com.example.movieselector.mainmenu.apirequests
 
-import android.view.textclassifier.TextLanguage
 import com.example.movieselector.mainmenu.models.GenresResponse
 import com.example.movieselector.mainmenu.models.MoreMovie
 import retrofit2.Call
 import com.example.movieselector.mainmenu.models.MovieResponse
-import com.example.movieselector.mainmenu.models.Tag
 
 import retrofit2.http.GET
 import retrofit2.http.Path

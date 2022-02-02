@@ -15,11 +15,10 @@
         android:background="@color/teal_700"
         android:ems="10"
         android:gravity="center"
-        android:hint="Введите свой ник"
+        android:hint="@string/Nic"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:minHeight="48dp"
-        tools:ignore="HardcodedText" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/email_address"
@@ -30,11 +29,10 @@
         android:background="@color/teal_700"
         android:ems="10"
         android:gravity="center"
-        android:hint="Введите свой email"
+        android:hint="@string/email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        tools:ignore="HardcodedText" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/text_password"
@@ -48,8 +46,7 @@
         android:inputType="textPassword"
         android:importantForAutofill="no"
         android:minHeight="48dp"
-        android:hint="Введите пароль"
-        tools:ignore="HardcodedText" />
+        android:hint="@string/pass" />
 
     <EditText
         android:id="@+id/text_reenter_password"
@@ -63,8 +60,7 @@
         android:inputType="textPassword"
         android:importantForAutofill="no"
         android:minHeight="48dp"
-        android:hint="Повторите пароль"
-        tools:ignore="HardcodedText" />
+        android:hint="@string/re_pass" />
 
     <Button
         android:id="@+id/register"
@@ -75,6 +71,6 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="#4CAF50"
         android:gravity="center"
-        android:text="Зарегистрироваться" />
+        android:text="@string/register" />
 
 </RelativeLayout>

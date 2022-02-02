@@ -1,8 +1,5 @@
 package com.example.movieselector.mainmenu.models
 
-import com.example.movieselector.mainmenu.apirequests.Controller
-import com.example.movieselector.mainmenu.getAPI
-
 class MoreMovie(
     id: Int = 0,
     original_title: String = "",
@@ -19,7 +16,11 @@ class MoreMovie(
     vote_average,
 ) {
     override fun toString(): String {
-        return super.toString() + ", runtime: ${Time.intToStringTime(runtime)} poster_path: ${Image.getImageURL(poster_path)}, genres: $genres\n"
+        return super.toString() + ", runtime: ${Time.intToStringTime(runtime)} poster_path: ${
+            Image.getImageURL(
+                poster_path
+            )
+        }, genres: $genres\n"
     }
     fun stringGenres(): String{
         var res = ""

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainmenu2.ui.fratgmentmenu.MovieSelectionFragment"
+    tools:context=".mainmenu.ui.fratgmentmenu.MovieSelectionFragment"
     android:background="@color/teal_200">
 
 
@@ -20,7 +20,7 @@
         android:id="@+id/rating_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=" rating_status"
+        android:text="@string/rating_status"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/time_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=" duration_status"
+        android:text="@string/duration_status"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         android:id="@+id/rating"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=" Film Rating: "
+        android:text="@string/film_rating"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:id="@+id/time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=" Film Duration: "
+        android:text="@string/film_duration"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,8 +66,8 @@
         android:layout_height="wrap_content"
         android:background="#FF9800"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="Не интересует"
+        android:layout_marginStart="10dp"
+        android:text="@string/not_interested"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -77,8 +77,8 @@
         android:layout_height="wrap_content"
         android:background="#4CAF50"
         android:layout_marginBottom="20dp"
-        android:layout_marginRight="10dp"
-        android:text="Хочу посмотреть"
+        android:layout_marginEnd="10dp"
+        android:text="@string/want_to_watch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -95,8 +95,8 @@
         <TextView
             android:id="@+id/text_about_film"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="About film"
+            android:layout_height="wrap_content"
+            android:text="@string/about_film"
             android:textAlignment="textStart"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

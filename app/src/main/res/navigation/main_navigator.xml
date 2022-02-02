@@ -6,7 +6,7 @@
     app:startDestination="@id/userLists">
     <fragment
         android:id="@+id/userLists"
-        android:name="com.example.movieselector.mainmenu2.ui.fratgmentmenu.UserListFragment"
+        android:name="com.example.movieselector.mainmenu.ui.fratgmentmenu.UserListFragment"
         android:label="fragment_user_lists"
         tools:layout="@layout/fragment_user_lists" />
 </navigation>

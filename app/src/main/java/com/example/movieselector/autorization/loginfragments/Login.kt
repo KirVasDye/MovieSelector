@@ -13,8 +13,7 @@ import androidx.navigation.findNavController
 import com.example.movieselector.R
 import com.example.movieselector.autorization.NullFieldEX
 import com.example.movieselector.autorization.RegisterLogic
-import com.example.movieselector.mainmenu2.MainMenuActivity
-import com.example.movieselector.testdir.TestActivity
+import com.example.movieselector.mainmenu.MainMenuActivity
 import com.example.movieselector.toastwindow.eventAlert
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference

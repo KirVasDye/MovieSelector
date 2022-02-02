@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_200"
-    tools:context=".mainmenu2.ui.fratgmentmenu.GenresChooseFragment">
+    tools:context=".mainmenu.ui.fratgmentmenu.GenresChooseFragment">
 
 
     <Button
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#4CAF50"
-        android:text="Назад"
+        android:text="@string/back"
         android:layout_marginBottom="80dp"
         android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Выберете нужный жанр"
+        android:text="@string/genre"
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
