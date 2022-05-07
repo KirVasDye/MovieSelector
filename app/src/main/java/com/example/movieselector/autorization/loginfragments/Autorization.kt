@@ -71,7 +71,6 @@ class Autorization : Fragment() {
                         val user = User(
                             RegisterLogic.register(name).text.toString(),
                             RegisterLogic.register(email).text.toString(),
-                            RegisterLogic.register(password).text.toString(),
                         )
                         users.child(FirebaseAuth.getInstance().currentUser!!.uid)
                             .setValue(user)

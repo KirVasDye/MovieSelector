@@ -23,4 +23,9 @@
             android:id="@+id/action_autorization_to_login_main"
             app:destination="@id/login_main" />
     </fragment>
+    <fragment
+        android:id="@+id/passAndBioFragment"
+        android:name="com.example.movieselector.autorization.loginfragments.PassAndBioFragment"
+        android:label="fragment_pass_and_bio"
+        tools:layout="@layout/fragment_pass_and_bio" />
 </navigation>

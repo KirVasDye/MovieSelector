@@ -45,17 +45,6 @@ class UserListFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-
-    /*companion object {
-        fun getNewInstance(string: String): UserListFragment{
-            val userListFragment = UserListFragment()
-            val bundle = Bundle()
-            bundle.putString("uid", string)
-            userListFragment.arguments = bundle
-            userListFragment.requireArguments().getString("uid")?.let { Log.d("UserListFragment", it) }
-            return userListFragment
-        }
-    }*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "Init")
@@ -68,9 +57,7 @@ class UserListFragment : Fragment() {
                 view?.findNavController()?.navigate(R.id.moreMovieInfoFragment)
             }
         }
-        /*db = FirebaseDatabase.getInstance()
-        Log.d(TAG, arguments?.get("uid").toString())
-        users = db.getReference("Users").child(arguments?.getString("uid").toString())*/
+
     }
 
     override fun onCreateView(
@@ -120,19 +107,7 @@ class UserListFragment : Fragment() {
         goToWantWatchingButton.setOnClickListener {
             view.findNavController().navigate(R.id.wantToWatchingFragment)
         }
-        /*previousButton.setOnClickListener {
-            try {
-                userListViewModel.loadPrevious()
-                userListViewModel.moreMovieList.observe(viewLifecycleOwner, {
-                    view?.findViewById<RecyclerView>(R.id.films_list)?.adapter = MoviesAdapter(it, this)
-                })
-            } catch (ex: ZeroPageEX){
-                eventAlert(view, "Дальше листать незя")
-            }
-        }*/
-        /*nextButton.setOnClickListener {
-            userListViewModel.loadNext()
-        }*/
+
         previousButton = view.findViewById(R.id.left_button)
         nextButton = view.findViewById(R.id.right_button)
         toEndButton = view.findViewById(R.id.to_end)

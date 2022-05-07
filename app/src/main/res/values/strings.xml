@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MovieSelector</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -39,13 +39,8 @@
     <string name="film_duration">Film Duration:</string>
     <string name="in_watching">Перейти в список просмотренных</string>
     <string name="genres">genres</string>
-    <string name="rating_status">rating_status</string>
-    <string name="duration_status">duration_status</string>
-    <string name="film_rating">Film Rating:</string>
-    <string name="film_duration">Film Duration:</string>
     <string name="not_interested">Не интересует</string>
     <string name="want_to_watch">Хочу посмотреть</string>
-    <string name="about_film">About film</string>
     <string name="logo_fill">Заполните форму подбора фильма</string>
     <string name="genres_choose">Выбор жанра</string>
     <string name="duration_choose">Выбор длительности</string>

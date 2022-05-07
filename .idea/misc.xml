@@ -12,6 +12,7 @@
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.3828125" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3828125" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
+        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout-v23/fragment_pass_and_bio.xml" value="0.297554347826087" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/activity_main.xml" value="0.2445141065830721" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
@@ -28,6 +29,8 @@
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_login.xml" value="0.17864583333333334" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_more_movie_info.xml" value="0.21052631578947367" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_movie_selection.xml" value="0.3632246376811594" />
+        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_pass.xml" value="0.3038949275362319" />
+        <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_pass_and_bio.xml" value="0.297554347826087" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_selection.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_slideshow.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekts/MovieSelector/app/src/main/res/layout/fragment_user_lists.xml" value="0.36666666666666664" />
@@ -55,5 +58,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.297554347826087" />
+      </ProjectState>
+    </option>
   </component>
 </project>
