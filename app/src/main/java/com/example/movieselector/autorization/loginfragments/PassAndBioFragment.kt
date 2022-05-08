@@ -1,9 +1,12 @@
 package com.example.movieselector.autorization.loginfragments
 
+import android.app.KeyguardManager
 import android.bluetooth.le.AdvertiseSettings
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.hardware.fingerprint.FingerprintManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,6 +17,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.example.movieselector.R
 import com.example.movieselector.autorization.NullFieldEX
 import com.example.movieselector.autorization.RegisterLogic
@@ -22,6 +26,8 @@ import com.example.movieselector.toastwindow.eventAlert
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat
+
 
 
 class PassAndBioFragment : Fragment() {
@@ -37,6 +43,7 @@ class PassAndBioFragment : Fragment() {
 
     val TAG = "PassAndBioFragment"
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         settings = context?.getSharedPreferences("email", Context.MODE_PRIVATE)!!
@@ -80,5 +87,11 @@ class PassAndBioFragment : Fragment() {
                 eventAlert(view, "Не удалось войти по причине ${e.message}")
             }
         }
+
+        biometricEnter.setOnClickListener { view ->
+            eventAlert(view, "Use finger")
+        }
+
     }
+
 }
