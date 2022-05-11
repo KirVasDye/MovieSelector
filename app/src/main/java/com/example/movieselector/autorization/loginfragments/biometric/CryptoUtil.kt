@@ -21,7 +21,7 @@ import javax.crypto.spec.OAEPParameterSpec
 import javax.crypto.spec.PSource
 
 
-class CryptoUtil {
+object CryptoUtil {
     private val TAG: String = CryptoUtil::class.java.simpleName
 
     private val KEY_ALIAS = "key_for_pin"
@@ -36,7 +36,7 @@ class CryptoUtil {
     fun encode(inputString: String): String? {
         try {
             if (prepare() && initCipher(Cipher.ENCRYPT_MODE)) {
-                val bytes = sCipher!!.doFinal(inputString.toByteArray())
+                val bytes = sCipher.doFinal(inputString.toByteArray())
                 return Base64.encodeToString(bytes, Base64.NO_WRAP)
             }
         } catch (exception: IllegalBlockSizeException) {

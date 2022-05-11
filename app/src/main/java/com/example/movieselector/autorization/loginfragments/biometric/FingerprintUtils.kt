@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat
 import android.app.KeyguardManager
 
-class FingerprintUtils {
+object FingerprintUtils {
     /**
      * Class for monitoring sensor states
      */
